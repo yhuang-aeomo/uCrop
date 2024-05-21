@@ -117,7 +117,6 @@ Currently, you can change:
 *   Fixed [#602](https://github.com/Yalantis/uCrop/issues/602)
 *   And other improvements
 
-
 ### Version: 2.2.4
 
   * **AndroidX migration**
