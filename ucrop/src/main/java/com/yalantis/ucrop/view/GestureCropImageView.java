@@ -153,10 +153,9 @@ public class GestureCropImageView extends CropImageView {
 
         @Override
         public boolean onRotation(RotationGestureDetector rotationDetector) {
-            postRotate(rotationDetector.getAngle(), mMidPntX, mMidPntY);
-            return true;
+//            postRotate(rotationDetector.getAngle(), mMidPntX, mMidPntY);
+            return false;
         }
-
     }
 
 }
