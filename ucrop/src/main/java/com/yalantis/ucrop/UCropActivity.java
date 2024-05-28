@@ -153,30 +153,27 @@ public class UCropActivity extends AppCompatActivity {
             ((Animatable) menuItemLoader.getIcon()).start();
         }
 
-        MenuItem menuItemCrop = menu.findItem(R.id.menu_crop);
-        Drawable menuItemCropIcon = ContextCompat.getDrawable(this, mToolbarCropDrawable);
-        if (menuItemCropIcon != null) {
-            menuItemCropIcon.mutate();
-            menuItemCropIcon.setColorFilter(mToolbarWidgetColor, PorterDuff.Mode.SRC_ATOP);
-            menuItemCrop.setIcon(menuItemCropIcon);
-        }
+//        MenuItem menuItemCrop = menu.findItem(R.id.menu_crop);
+//        Drawable menuItemCropIcon = ContextCompat.getDrawable(this, mToolbarCropDrawable);
+//        if (menuItemCropIcon != null) {
+//            menuItemCropIcon.mutate();
+//            menuItemCropIcon.setColorFilter(mToolbarWidgetColor, PorterDuff.Mode.SRC_ATOP);
+//            menuItemCrop.setIcon(menuItemCropIcon);
+//        }
 
         return true;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_crop).setVisible(!mShowLoader);
+//        menu.findItem(R.id.menu_crop).setVisible(!mShowLoader);
         menu.findItem(R.id.menu_loader).setVisible(mShowLoader);
         return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_crop) {
-            cropAndSaveImage();
-            return true;
-        } else if (item.getItemId() == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             onBackPressed();
             return true;
         }
@@ -360,7 +357,7 @@ public class UCropActivity extends AppCompatActivity {
         }
 
         Button tryItButton = findViewById(R.id.tryItButton);
-        tryItButton.setOnClickListener(v -> Toast.makeText(UCropActivity.this, "Try It clicked!", Toast.LENGTH_SHORT).show());
+        tryItButton.setOnClickListener(v -> cropAndSaveImage());
     }
 
     /**
