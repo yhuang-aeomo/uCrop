@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2E2E2E">
+
+    <LinearLayout
+        android:id="@+id/ratioContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="7">
+
+        <LinearLayout
+            android:id="@+id/ratio1_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rectangle_border" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/ucrop__1_1"
+                android:textColor="#FFFF00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ratio3_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <View
+                android:layout_width="22.5dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rectangle_border" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/ucrop__3_4"
+                android:textColor="#FFFF00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ratio4_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rectangle_border" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/ucrop__4_3"
+                android:textColor="#FFFF00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ratio4_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <View
+                android:layout_width="24dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rectangle_border" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/ucrop__4_5"
+                android:textColor="#FFFF00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ratio5_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <View
+                android:layout_width="37.5dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rectangle_border" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/ucrop__5_4"
+                android:textColor="#FFFF00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ratio9_16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <View
+                android:layout_width="16.9dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rectangle_border" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/ucrop__9_16"
+                android:textColor="#FFFF00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ratio16_9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/rectangle_border" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/ucrop__16_9"
+                android:textColor="#FFFF00" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/tryItButton"
+        android:layout_width="200dp"
+        android:layout_height="47dp"
+        android:layout_below="@id/ratioContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_background"
+        android:text="@string/ucrop_try_it"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        />
+</RelativeLayout>

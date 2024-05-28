@@ -10,5 +10,13 @@
     <string name="ucrop_rotate">Rotate</string>
     <string name="ucrop_scale">Scale</string>
     <string name="ucrop_crop">Crop</string>
+    <string name="ucrop__1_1">1:1</string>
+    <string name="ucrop_try_it">Try It</string>
+    <string name="ucrop__16_9">16:9</string>
+    <string name="ucrop__9_16">9:16</string>
+    <string name="ucrop__3_4">3:4</string>
+    <string name="ucrop__4_3">4:3</string>
+    <string name="ucrop__4_5">4:5</string>
+    <string name="ucrop__5_4">5:4</string>
 
 </resources>
