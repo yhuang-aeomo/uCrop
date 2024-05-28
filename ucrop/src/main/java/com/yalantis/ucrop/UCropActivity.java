@@ -132,6 +132,10 @@ public class UCropActivity extends AppCompatActivity {
         setImageData(intent);
 //        setInitialState();
         addBlockingView();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(android.R.color.black));
+        }
     }
 
     @Override
