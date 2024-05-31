@@ -37,6 +37,7 @@ public class CropImageView extends TransformImageView {
     public static final int DEFAULT_IMAGE_TO_CROP_BOUNDS_ANIM_DURATION = 500;
     public static final float DEFAULT_MAX_SCALE_MULTIPLIER = 10.0f;
     public static final float SOURCE_IMAGE_ASPECT_RATIO = 0f;
+    public static final float DEFAULT_IMAGE_ASPECT_RATIO = 1.0f;
     public static final float DEFAULT_ASPECT_RATIO = SOURCE_IMAGE_ASPECT_RATIO;
 
     private final RectF mCropRect = new RectF();

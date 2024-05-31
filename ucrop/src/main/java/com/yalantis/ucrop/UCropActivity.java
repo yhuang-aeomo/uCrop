@@ -117,6 +117,8 @@ public class UCropActivity extends AppCompatActivity {
     private int mCompressQuality = DEFAULT_COMPRESS_QUALITY;
     private int[] mAllowedGestures = new int[]{SCALE, ROTATE, ALL};
 
+    private LinearLayout selectedRatio = null;
+
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
@@ -274,7 +276,7 @@ public class UCropActivity extends AppCompatActivity {
             float targetAspectRatio = aspectRatioList.get(aspectRationSelectedByDefault).getAspectRatioX() / aspectRatioList.get(aspectRationSelectedByDefault).getAspectRatioY();
             mGestureCropImageView.setTargetAspectRatio(Float.isNaN(targetAspectRatio) ? CropImageView.SOURCE_IMAGE_ASPECT_RATIO : targetAspectRatio);
         } else {
-            mGestureCropImageView.setTargetAspectRatio(CropImageView.SOURCE_IMAGE_ASPECT_RATIO);
+            mGestureCropImageView.setTargetAspectRatio(CropImageView.DEFAULT_IMAGE_ASPECT_RATIO);
         }
 
         // Result bitmap max size options
@@ -353,11 +355,24 @@ public class UCropActivity extends AppCompatActivity {
                     mGestureCropImageView.setTargetAspectRatio(aspectRatio);
                     mGestureCropImageView.setImageToWrapCropBounds();
                 }
+
+                // Change selected state and update colors
+                if (selectedRatio != null) {
+                    selectedRatio.setSelected(false);
+                }
+                selectedRatio = (LinearLayout) v;
+                selectedRatio.setSelected(true);
             }
         };
 
         for (Map.Entry<Integer, Float> entry : ratioMap.entrySet()) {
             findViewById(entry.getKey()).setOnClickListener(listener);
+        }
+
+        LinearLayout firstRatio = findViewById(R.id.ratio1_1);
+        if (firstRatio != null) {
+            firstRatio.setSelected(true);
+            selectedRatio = firstRatio;
         }
 
         Button tryItButton = findViewById(R.id.tryItButton);
