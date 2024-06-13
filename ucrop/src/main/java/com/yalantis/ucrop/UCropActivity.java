@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -377,6 +378,14 @@ public class UCropActivity extends AppCompatActivity {
 
         Button tryItButton = findViewById(R.id.tryItButton);
         tryItButton.setOnClickListener(v -> cropAndSaveImage());
+
+        ImageButton rotationButton = findViewById(R.id.rotationButton);
+        rotationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rotateByAngle(90);
+            }
+        });
     }
 
     /**

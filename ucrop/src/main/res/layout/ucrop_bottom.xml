@@ -4,12 +4,26 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
+    <ImageButton
+        android:id="@+id/rotationButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="20dp"
+        android:background="@null"
+        android:contentDescription="@string/ucrop_rotationbutton"
+        android:src="@drawable/rotation_icon"
+        android:scaleType="fitCenter" />
+
     <LinearLayout
         android:id="@+id/ratioContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/rotationButton"
+        android:layout_marginTop="10dp"
         android:baselineAligned="false"
         android:gravity="center"
         android:orientation="horizontal"
@@ -176,7 +190,7 @@
         android:layout_height="47dp"
         android:layout_below="@id/ratioContainer"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/button_background"
         android:text="@string/ucrop_try_it"
