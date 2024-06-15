@@ -418,7 +418,7 @@ public class UCropActivity extends AppCompatActivity {
         adFreeCreation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResult(UCrop.RESULT_ERROR, new Intent().putExtra(UCrop.EXTRA_ERROR, new Exception("Ad_free_creation")));
+                setResult(99, new Intent().putExtra(UCrop.EXTRA_OUTPUT_URI, "Ad_free_creation"));
                 finish();
             }
         });
