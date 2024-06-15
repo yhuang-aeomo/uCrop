@@ -2,6 +2,7 @@ package com.yalantis.ucrop;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Animatable;
@@ -26,7 +27,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.yalantis.ucrop.callback.BitmapCropCallback;
 import com.yalantis.ucrop.model.AspectRatio;
@@ -59,7 +59,7 @@ import androidx.transition.AutoTransition;
 import androidx.transition.Transition;
 
 /**
- * Created by Oleksii Shliama (https://github.com/shliama).
+ * Created by Oleksii Shliama (<a href="https://github.com/shliama">...</a>).
  */
 
 @SuppressWarnings("ConstantConditions")
@@ -72,6 +72,8 @@ public class UCropActivity extends AppCompatActivity {
     public static final int SCALE = 1;
     public static final int ROTATE = 2;
     public static final int ALL = 3;
+    private static final String PREFS_NAME = "PREFS_UCROP";
+    private static final String PREF_OVERLAY_SHOWN = "PREF_OVERLAY_SHOWN";
 
     @IntDef({NONE, SCALE, ROTATE, ALL})
     @Retention(RetentionPolicy.SOURCE)
@@ -318,7 +320,7 @@ public class UCropActivity extends AppCompatActivity {
             mControlsTransition.setDuration(CONTROLS_ANIMATION_DURATION);
 
             setupBottomClick();
-
+            setupOverlayView();
 
 //            mWrapperStateAspectRatio = findViewById(R.id.state_aspect_ratio);
 //            mWrapperStateAspectRatio.setOnClickListener(mStateClickListener);
@@ -335,6 +337,28 @@ public class UCropActivity extends AppCompatActivity {
 //            setupRotateWidget();
 //            setupScaleWidget();
 //            setupStatesWrapper();
+        }
+    }
+
+    private void setupOverlayView() {
+        final FrameLayout overlay = findViewById(R.id.overlay);
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        boolean overlayShown = settings.getBoolean(PREF_OVERLAY_SHOWN, false);
+
+        if (!overlayShown) {
+            overlay.setVisibility(View.VISIBLE);
+            overlay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    overlay.setVisibility(View.GONE);
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putBoolean(PREF_OVERLAY_SHOWN, true);
+                    editor.apply();
+                }
+            });
+        } else {
+            overlay.setVisibility(View.GONE);
         }
     }
 
