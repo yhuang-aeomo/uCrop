@@ -20,5 +20,6 @@
     <string name="ucrop__5_4">5:4</string>
     <string name="ucrop_rotationbutton">rotationButton</string>
     <string name="ucrop_pinch_to_zoom">Pinch to zoom</string>
+    <string name="ucrop_ad_free_creation">Ad-Free Creation</string>
 
 </resources>
