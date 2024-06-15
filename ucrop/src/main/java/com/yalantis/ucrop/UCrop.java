@@ -292,6 +292,7 @@ public class UCrop {
         public static final String EXTRA_CROP_GRID_COLOR = EXTRA_PREFIX + ".CropGridColor";
         public static final String EXTRA_CROP_GRID_CORNER_COLOR = EXTRA_PREFIX + ".CropGridCornerColor";
         public static final String EXTRA_CROP_GRID_STROKE_WIDTH = EXTRA_PREFIX + ".CropGridStrokeWidth";
+        public static final String EXTRA_SHOW_AD_FREE = EXTRA_PREFIX + ".ShowAdFree";
 
         public static final String EXTRA_TOOL_BAR_COLOR = EXTRA_PREFIX + ".ToolbarColor";
         public static final String EXTRA_STATUS_BAR_COLOR = EXTRA_PREFIX + ".StatusBarColor";
@@ -449,6 +450,13 @@ public class UCrop {
          */
         public void setCropGridStrokeWidth(@IntRange(from = 0) int width) {
             mOptionBundle.putInt(EXTRA_CROP_GRID_STROKE_WIDTH, width);
+        }
+
+        /**
+         * @param showAdFree - desired width of crop grid lines in pixels
+         */
+        public void setShowAdFree(boolean show) {
+            mOptionBundle.putBoolean(EXTRA_SHOW_AD_FREE, show);
         }
 
         /**

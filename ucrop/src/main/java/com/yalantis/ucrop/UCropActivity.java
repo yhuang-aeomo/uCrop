@@ -414,14 +414,19 @@ public class UCropActivity extends AppCompatActivity {
         });
 
         TextView adFreeCreation = findViewById(R.id.adFreeCreation);
-        adFreeCreation.setPaintFlags(adFreeCreation.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        adFreeCreation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setResult(99, new Intent().putExtra(UCrop.EXTRA_OUTPUT_URI, "Ad_free_creation"));
-                finish();
-            }
-        });
+        boolean show = getIntent().getBooleanExtra(UCrop.Options.EXTRA_SHOW_AD_FREE, false);
+        if (show) {
+            adFreeCreation.setPaintFlags(adFreeCreation.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            adFreeCreation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setResult(99, new Intent().putExtra(UCrop.EXTRA_OUTPUT_URI, "Ad_free_creation"));
+                    finish();
+                }
+            });
+        } else {
+            adFreeCreation.setVisibility(View.GONE); // Hide the TextView if show is false
+        }
     }
 
     /**
