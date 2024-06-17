@@ -402,7 +402,7 @@ public class UCropActivity extends AppCompatActivity {
             selectedRatio = firstRatio;
         }
 
-        Button tryItButton = findViewById(R.id.tryItButton);
+        RelativeLayout tryItButton = findViewById(R.id.tryItButton);
         tryItButton.setOnClickListener(v -> cropAndSaveImage());
 
         ImageButton rotationButton = findViewById(R.id.rotationButton);
@@ -414,6 +414,7 @@ public class UCropActivity extends AppCompatActivity {
         });
 
         TextView adFreeCreation = findViewById(R.id.adFreeCreation);
+        ImageView adIcon = findViewById(R.id.adIcon);
         boolean show = getIntent().getBooleanExtra(UCrop.Options.EXTRA_SHOW_AD_FREE, false);
         if (show) {
             adFreeCreation.setPaintFlags(adFreeCreation.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -425,6 +426,7 @@ public class UCropActivity extends AppCompatActivity {
                 }
             });
         } else {
+            adIcon.setVisibility(View.GONE); // Hide the ImageView if show is false
             adFreeCreation.setVisibility(View.GONE); // Hide the TextView if show is false
         }
     }

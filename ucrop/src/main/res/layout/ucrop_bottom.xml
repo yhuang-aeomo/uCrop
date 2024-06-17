@@ -184,20 +184,42 @@
 
     </LinearLayout>
 
-    <Button
+    <RelativeLayout
         android:id="@+id/tryItButton"
         android:layout_width="200dp"
         android:layout_height="48dp"
+        android:background="@drawable/button_background"
         android:layout_below="@id/ratioContainer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/button_background"
         android:text="@string/ucrop_try_it"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="17sp"
+        android:textStyle="bold">
+
+    <TextView
+        android:id="@+id/tryItTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/ucrop_try_it"
+        android:textColor="#000000"
+        android:textSize="17sp"
         android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/adIcon"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ad_icon"
+        android:layout_toEndOf="@id/tryItTv"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"/>
+
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/adFreeCreation"
