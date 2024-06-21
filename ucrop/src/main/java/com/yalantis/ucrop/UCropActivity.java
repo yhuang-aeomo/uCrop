@@ -21,14 +21,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.yalantis.ucrop.callback.BitmapCropCallback;
 import com.yalantis.ucrop.model.AspectRatio;
@@ -40,6 +38,7 @@ import com.yalantis.ucrop.view.UCropView;
 import com.yalantis.ucrop.view.widget.AspectRatioTextView;
 import com.yalantis.ucrop.view.widget.HorizontalProgressWheelView;
 
+import java.io.Serializable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -416,6 +415,24 @@ public class UCropActivity extends AppCompatActivity {
         TextView adFreeCreation = findViewById(R.id.adFreeCreation);
         ImageView adIcon = findViewById(R.id.adIcon);
         boolean show = getIntent().getBooleanExtra(UCrop.Options.EXTRA_SHOW_AD_FREE, false);
+        Serializable serializableExtra = getIntent().getSerializableExtra(UCrop.Options.EXTRA_TRANSLATES);
+        Map<String, String> translates;
+        if (serializableExtra instanceof Map) {
+            translates = (Map<String, String>) serializableExtra;
+        } else {
+            translates = new HashMap<String, String>();
+        }
+        if (translates.containsKey("adFreeCreation")) {
+            adFreeCreation.setText(translates.get("adFreeCreation"));
+        }
+        if (translates.containsKey("tryIt")) {
+            TextView tryItText = findViewById(R.id.tryItTv);
+            tryItText.setText(translates.get("tryIt"));
+        }
+        if (translates.containsKey("guideText")) {
+            TextView guideText = findViewById(R.id.overlay_text);
+            guideText.setText(translates.get("guideText"));
+        }
         if (show) {
             adFreeCreation.setPaintFlags(adFreeCreation.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             adFreeCreation.setOnClickListener(new View.OnClickListener() {

@@ -13,9 +13,11 @@ import android.os.Parcelable;
 
 import com.yalantis.ucrop.model.AspectRatio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Map;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.ColorInt;
@@ -293,6 +295,7 @@ public class UCrop {
         public static final String EXTRA_CROP_GRID_CORNER_COLOR = EXTRA_PREFIX + ".CropGridCornerColor";
         public static final String EXTRA_CROP_GRID_STROKE_WIDTH = EXTRA_PREFIX + ".CropGridStrokeWidth";
         public static final String EXTRA_SHOW_AD_FREE = EXTRA_PREFIX + ".ShowAdFree";
+        public static final String EXTRA_TRANSLATES = EXTRA_PREFIX + ".Translates";
 
         public static final String EXTRA_TOOL_BAR_COLOR = EXTRA_PREFIX + ".ToolbarColor";
         public static final String EXTRA_STATUS_BAR_COLOR = EXTRA_PREFIX + ".StatusBarColor";
@@ -453,10 +456,17 @@ public class UCrop {
         }
 
         /**
-         * @param showAdFree - desired width of crop grid lines in pixels
+         * @param show - desired width of crop grid lines in pixels
          */
         public void setShowAdFree(boolean show) {
             mOptionBundle.putBoolean(EXTRA_SHOW_AD_FREE, show);
+        }
+
+        /**
+         * @param translates - desired width of crop grid lines in pixels
+         */
+        public void setTranslates(Map<String, String> translates) {
+            mOptionBundle.putSerializable(EXTRA_TRANSLATES, (Serializable) translates);
         }
 
         /**
