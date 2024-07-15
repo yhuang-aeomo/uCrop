@@ -395,7 +395,7 @@ public class UCropActivity extends AppCompatActivity {
             findViewById(entry.getKey()).setOnClickListener(listener);
         }
 
-        LinearLayout firstRatio = findViewById(R.id.ratio1_1);
+        LinearLayout firstRatio = findViewById(R.id.ratio3_4);
         if (firstRatio != null) {
             firstRatio.setSelected(true);
             selectedRatio = firstRatio;
