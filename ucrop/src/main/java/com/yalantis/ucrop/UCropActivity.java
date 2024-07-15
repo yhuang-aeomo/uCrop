@@ -378,6 +378,7 @@ public class UCropActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Float aspectRatio = ratioMap.get(v.getId());
                 if (aspectRatio != null) {
+                    mGestureCropImageView.zoomOutImage(mGestureCropImageView.getMinScale());
                     mGestureCropImageView.setTargetAspectRatio(aspectRatio);
                     mGestureCropImageView.setImageToWrapCropBounds();
                 }
