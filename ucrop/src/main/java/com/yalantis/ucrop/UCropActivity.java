@@ -270,16 +270,26 @@ public class UCropActivity extends AppCompatActivity {
         int aspectRationSelectedByDefault = intent.getIntExtra(UCrop.Options.EXTRA_ASPECT_RATIO_SELECTED_BY_DEFAULT, 0);
         ArrayList<AspectRatio> aspectRatioList = intent.getParcelableArrayListExtra(UCrop.Options.EXTRA_ASPECT_RATIO_OPTIONS);
 
-        if (aspectRatioX >= 0 && aspectRatioY >= 0) {
-            if (mWrapperStateAspectRatio != null) {
-                mWrapperStateAspectRatio.setVisibility(View.GONE);
-            }
-            float targetAspectRatio = aspectRatioX / aspectRatioY;
-            mGestureCropImageView.setTargetAspectRatio(Float.isNaN(targetAspectRatio) ? CropImageView.SOURCE_IMAGE_ASPECT_RATIO : targetAspectRatio);
-        } else if (aspectRatioList != null && aspectRationSelectedByDefault < aspectRatioList.size()) {
-            float targetAspectRatio = aspectRatioList.get(aspectRationSelectedByDefault).getAspectRatioX() / aspectRatioList.get(aspectRationSelectedByDefault).getAspectRatioY();
-            mGestureCropImageView.setTargetAspectRatio(Float.isNaN(targetAspectRatio) ? CropImageView.SOURCE_IMAGE_ASPECT_RATIO : targetAspectRatio);
-        } else {
+//        if (aspectRatioX >= 0 && aspectRatioY >= 0) {
+//            if (mWrapperStateAspectRatio != null) {
+//                mWrapperStateAspectRatio.setVisibility(View.GONE);
+//            }
+//            float targetAspectRatio = aspectRatioX / aspectRatioY;
+//            mGestureCropImageView.setTargetAspectRatio(Float.isNaN(targetAspectRatio) ? CropImageView.SOURCE_IMAGE_ASPECT_RATIO : targetAspectRatio);
+//        } else if (aspectRatioList != null && aspectRationSelectedByDefault < aspectRatioList.size()) {
+//            float targetAspectRatio = aspectRatioList.get(aspectRationSelectedByDefault).getAspectRatioX() / aspectRatioList.get(aspectRationSelectedByDefault).getAspectRatioY();
+//            mGestureCropImageView.setTargetAspectRatio(Float.isNaN(targetAspectRatio) ? CropImageView.SOURCE_IMAGE_ASPECT_RATIO : targetAspectRatio);
+//        } else {
+//            mGestureCropImageView.setTargetAspectRatio(CropImageView.DEFAULT_IMAGE_ASPECT_RATIO);
+//        }
+
+        if (aspectRatioX == 16 && aspectRatioY == 9) {
+            mGestureCropImageView.setTargetAspectRatio(0.5625f);
+            LinearLayout ratioContainer = findViewById(R.id.ratioContainer);
+            ratioContainer.setVisibility(View.GONE);
+            ImageButton rotationButton = findViewById(R.id.rotationButton);
+            rotationButton.setVisibility(View.GONE);
+        }else {
             mGestureCropImageView.setTargetAspectRatio(CropImageView.DEFAULT_IMAGE_ASPECT_RATIO);
         }
 
