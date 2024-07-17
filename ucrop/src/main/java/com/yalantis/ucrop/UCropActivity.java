@@ -283,7 +283,8 @@ public class UCropActivity extends AppCompatActivity {
 //            mGestureCropImageView.setTargetAspectRatio(CropImageView.DEFAULT_IMAGE_ASPECT_RATIO);
 //        }
 
-        if (aspectRatioX == 16 && aspectRatioY == 9) {
+        boolean showAspectRatioBar = getIntent().getBooleanExtra(UCrop.Options.EXTRA_SHOW_ASPECT_RATIO_BAR, true);
+        if (!showAspectRatioBar) {
             mGestureCropImageView.setTargetAspectRatio(0.5625f);
             LinearLayout ratioContainer = findViewById(R.id.ratioContainer);
             ratioContainer.setVisibility(View.GONE);

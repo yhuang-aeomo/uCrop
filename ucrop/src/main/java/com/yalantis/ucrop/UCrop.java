@@ -296,6 +296,7 @@ public class UCrop {
         public static final String EXTRA_CROP_GRID_STROKE_WIDTH = EXTRA_PREFIX + ".CropGridStrokeWidth";
         public static final String EXTRA_SHOW_AD_FREE = EXTRA_PREFIX + ".ShowAdFree";
         public static final String EXTRA_TRANSLATES = EXTRA_PREFIX + ".Translates";
+        public static final String EXTRA_SHOW_ASPECT_RATIO_BAR = EXTRA_PREFIX + ".ShowAspectRatioBar";
 
         public static final String EXTRA_TOOL_BAR_COLOR = EXTRA_PREFIX + ".ToolbarColor";
         public static final String EXTRA_STATUS_BAR_COLOR = EXTRA_PREFIX + ".StatusBarColor";
@@ -467,6 +468,13 @@ public class UCrop {
          */
         public void setTranslates(Map<String, String> translates) {
             mOptionBundle.putSerializable(EXTRA_TRANSLATES, (Serializable) translates);
+        }
+
+        /**
+         * @param show - set to true if you want to see a aspect ratio bar on top of an image
+         */
+        public  void setShowAspectRatioBar(boolean show) {
+            mOptionBundle.putBoolean(EXTRA_SHOW_ASPECT_RATIO_BAR, show);
         }
 
         /**
