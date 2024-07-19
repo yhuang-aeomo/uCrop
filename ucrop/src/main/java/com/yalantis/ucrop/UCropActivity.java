@@ -332,7 +332,6 @@ public class UCropActivity extends AppCompatActivity {
             mControlsTransition.setDuration(CONTROLS_ANIMATION_DURATION);
 
             setupBottomClick();
-            setupOverlayView();
 
 //            mWrapperStateAspectRatio = findViewById(R.id.state_aspect_ratio);
 //            mWrapperStateAspectRatio.setOnClickListener(mStateClickListener);
@@ -349,28 +348,6 @@ public class UCropActivity extends AppCompatActivity {
 //            setupRotateWidget();
 //            setupScaleWidget();
 //            setupStatesWrapper();
-        }
-    }
-
-    private void setupOverlayView() {
-        final FrameLayout overlay = findViewById(R.id.overlay);
-
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        boolean overlayShown = settings.getBoolean(PREF_OVERLAY_SHOWN, false);
-
-        if (!overlayShown) {
-            overlay.setVisibility(View.VISIBLE);
-            overlay.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    overlay.setVisibility(View.GONE);
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putBoolean(PREF_OVERLAY_SHOWN, true);
-                    editor.apply();
-                }
-            });
-        } else {
-            overlay.setVisibility(View.GONE);
         }
     }
 
@@ -440,10 +417,6 @@ public class UCropActivity extends AppCompatActivity {
         if (translates.containsKey("tryIt")) {
             TextView tryItText = findViewById(R.id.tryItTv);
             tryItText.setText(translates.get("tryIt"));
-        }
-        if (translates.containsKey("guideText")) {
-            TextView guideText = findViewById(R.id.overlay_text);
-            guideText.setText(translates.get("guideText"));
         }
         if (show) {
             adFreeCreation.setPaintFlags(adFreeCreation.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
