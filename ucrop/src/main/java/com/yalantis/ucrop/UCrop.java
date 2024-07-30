@@ -55,6 +55,8 @@ public class UCrop {
     public static final String EXTRA_MAX_SIZE_X = EXTRA_PREFIX + ".MaxSizeX";
     public static final String EXTRA_MAX_SIZE_Y = EXTRA_PREFIX + ".MaxSizeY";
 
+    public static final String EXTRA_ACT = EXTRA_PREFIX + ".ExtraAct";
+
     private Intent mCropIntent;
     private Bundle mCropOptionsBundle;
 
@@ -263,6 +265,10 @@ public class UCrop {
     @Nullable
     public static Throwable getError(@NonNull Intent result) {
         return (Throwable) result.getSerializableExtra(EXTRA_ERROR);
+    }
+
+    public static int getAct(@NonNull Intent result) {
+        return result.getIntExtra(EXTRA_ACT, 0);
     }
 
 

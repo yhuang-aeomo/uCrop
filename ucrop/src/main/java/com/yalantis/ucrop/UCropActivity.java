@@ -391,7 +391,7 @@ public class UCropActivity extends AppCompatActivity {
         }
 
         RelativeLayout tryItButton = findViewById(R.id.tryItButton);
-        tryItButton.setOnClickListener(v -> cropAndSaveImage());
+        tryItButton.setOnClickListener(v -> cropAndSaveImage(false));
 
         ImageButton rotationButton = findViewById(R.id.rotationButton);
         rotationButton.setOnClickListener(new View.OnClickListener() {
@@ -420,13 +420,7 @@ public class UCropActivity extends AppCompatActivity {
         }
         if (show) {
             adFreeCreation.setPaintFlags(adFreeCreation.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            adFreeCreation.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    setResult(99, new Intent().putExtra(UCrop.EXTRA_OUTPUT_URI, "Ad_free_creation"));
-                    finish();
-                }
-            });
+            adFreeCreation.setOnClickListener(v -> cropAndSaveImage(true));
         } else {
             adIcon.setVisibility(View.GONE); // Hide the ImageView if show is false
             adFreeCreation.setVisibility(View.GONE); // Hide the TextView if show is false
@@ -764,7 +758,7 @@ public class UCropActivity extends AppCompatActivity {
         ((RelativeLayout) findViewById(R.id.ucrop_photobox)).addView(mBlockingView);
     }
 
-    protected void cropAndSaveImage() {
+    protected void cropAndSaveImage(boolean extraAct) {
         mBlockingView.setClickable(true);
         mShowLoader = true;
         supportInvalidateOptionsMenu();
@@ -773,7 +767,7 @@ public class UCropActivity extends AppCompatActivity {
 
             @Override
             public void onBitmapCropped(@NonNull Uri resultUri, int offsetX, int offsetY, int imageWidth, int imageHeight) {
-                setResultUri(resultUri, mGestureCropImageView.getTargetAspectRatio(), offsetX, offsetY, imageWidth, imageHeight);
+                setResultUri(resultUri, mGestureCropImageView.getTargetAspectRatio(), offsetX, offsetY, imageWidth, imageHeight, extraAct);
                 finish();
             }
 
@@ -785,7 +779,7 @@ public class UCropActivity extends AppCompatActivity {
         });
     }
 
-    protected void setResultUri(Uri uri, float resultAspectRatio, int offsetX, int offsetY, int imageWidth, int imageHeight) {
+    protected void setResultUri(Uri uri, float resultAspectRatio, int offsetX, int offsetY, int imageWidth, int imageHeight, boolean extraAct) {
         setResult(RESULT_OK, new Intent()
                 .putExtra(UCrop.EXTRA_OUTPUT_URI, uri)
                 .putExtra(UCrop.EXTRA_OUTPUT_CROP_ASPECT_RATIO, resultAspectRatio)
@@ -793,6 +787,7 @@ public class UCropActivity extends AppCompatActivity {
                 .putExtra(UCrop.EXTRA_OUTPUT_IMAGE_HEIGHT, imageHeight)
                 .putExtra(UCrop.EXTRA_OUTPUT_OFFSET_X, offsetX)
                 .putExtra(UCrop.EXTRA_OUTPUT_OFFSET_Y, offsetY)
+                .putExtra(UCrop.EXTRA_ACT, extraAct)
         );
     }
 
