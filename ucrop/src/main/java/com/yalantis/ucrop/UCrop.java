@@ -267,6 +267,10 @@ public class UCrop {
         return (Throwable) result.getSerializableExtra(EXTRA_ERROR);
     }
 
+    public static boolean getExtraAct(@NonNull Intent result) {
+        return result.getBooleanExtra(EXTRA_ACT, false);
+    }
+
     public static int getAct(@NonNull Intent result) {
         return result.getIntExtra(EXTRA_ACT, 0);
     }
