@@ -285,7 +285,12 @@ public class UCropActivity extends AppCompatActivity {
 
         boolean showAspectRatioBar = getIntent().getBooleanExtra(UCrop.Options.EXTRA_SHOW_ASPECT_RATIO_BAR, true);
         if (!showAspectRatioBar) {
-            mGestureCropImageView.setTargetAspectRatio(0.5625f);
+            float tar = 0.5625f;
+            if (!aspectRatioList.isEmpty()) {
+                AspectRatio item = aspectRatioList.get(0);
+                tar = item.getAspectRatioX()/item.getAspectRatioY();
+            }
+            mGestureCropImageView.setTargetAspectRatio(tar);
             LinearLayout ratioContainer = findViewById(R.id.ratioContainer);
             ratioContainer.setVisibility(View.GONE);
             ImageButton rotationButton = findViewById(R.id.rotationButton);
