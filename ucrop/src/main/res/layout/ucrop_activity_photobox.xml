@@ -31,7 +31,7 @@
         android:layout_below="@+id/toolbar"
         android:textSize="15sp"
         android:textColor="#E4F80D"
-        android:background="@color/ucrop_color_toolbar"
+        android:background="#000000"
         android:padding="16dp"/>
 
     <FrameLayout
