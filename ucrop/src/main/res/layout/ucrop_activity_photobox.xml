@@ -29,9 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/toolbar"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textColor="#E4F80D"
-        android:background="@android:color/transparent"
+        android:background="@color/ucrop_color_toolbar"
         android:padding="16dp"/>
 
     <FrameLayout
