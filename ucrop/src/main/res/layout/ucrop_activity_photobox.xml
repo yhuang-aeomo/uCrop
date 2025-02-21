@@ -23,12 +23,23 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <TextView
+        android:id="@+id/text_view_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/toolbar"
+        android:textSize="18sp"
+        android:textColor="#E4F80D"
+        android:background="@android:color/transparent"
+        android:padding="16dp"/>
+
     <FrameLayout
         android:id="@+id/ucrop_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/controls_wrapper"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/text_view_top"
         android:layout_marginBottom="-12dp">
 
         <ImageView
@@ -47,6 +58,8 @@
             android:alpha="0" />
 
     </FrameLayout>
+
+
 
     <FrameLayout
         android:id="@+id/controls_wrapper"

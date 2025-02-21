@@ -325,9 +325,9 @@ public class UCropActivity extends AppCompatActivity {
 
         setupAppBar();
         initiateRootViews();
+        setupTextViewTop();
 
         if (mShowBottomControls) {
-
             ViewGroup viewGroup = findViewById(R.id.ucrop_photobox);
             ViewGroup wrapper = viewGroup.findViewById(R.id.controls_wrapper);
             wrapper.setVisibility(View.VISIBLE);
@@ -354,6 +354,29 @@ public class UCropActivity extends AppCompatActivity {
 //            setupScaleWidget();
 //            setupStatesWrapper();
         }
+    }
+
+    private void setupTextViewTop() {
+        TextView textViewTop = findViewById(R.id.text_view_top);
+        if (textViewTop == null) return;
+
+        Object extra = getIntent().getSerializableExtra(UCrop.Options.EXTRA_TRANSLATES);
+        if (!(extra instanceof Map<?, ?>)) {
+            textViewTop.setVisibility(View.GONE);
+            return;
+        }
+
+        Map<?, ?> translates = (Map<?, ?>) extra;
+        Object value = translates.get("topTips");
+        
+        if (value instanceof CharSequence) {
+            String topTips = value.toString().trim();
+            if (!topTips.isEmpty()) {
+                textViewTop.setText(topTips);
+                return;
+            }
+        }
+        textViewTop.setVisibility(View.GONE);
     }
 
     private void setupBottomClick() {
