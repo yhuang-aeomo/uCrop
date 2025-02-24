@@ -286,7 +286,7 @@ public class UCropActivity extends AppCompatActivity {
         boolean showAspectRatioBar = getIntent().getBooleanExtra(UCrop.Options.EXTRA_SHOW_ASPECT_RATIO_BAR, true);
         if (!showAspectRatioBar) {
             float tar = 0.5625f;
-            if (!aspectRatioList.isEmpty()) {
+            if (aspectRatioList!=null && !aspectRatioList.isEmpty()) {
                 AspectRatio item = aspectRatioList.get(0);
                 tar = item.getAspectRatioX()/item.getAspectRatioY();
             }
