@@ -302,10 +302,16 @@ public class ImageHeaderParser {
         }
 
         public int getInt32(int offset) {
+            if (offset < 0 || offset + 4 > data.limit()) {
+                return -1;
+            }
             return data.getInt(offset);
         }
 
         public short getInt16(int offset) {
+            if (offset < 0 || offset + 2 > data.limit()) {
+                return -1;
+            }
             return data.getShort(offset);
         }
     }
