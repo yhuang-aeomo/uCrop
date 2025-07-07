@@ -25,6 +25,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -790,17 +791,24 @@ public class UCropActivity extends AppCompatActivity {
         mBlockingView.setClickable(true);
         mShowLoader = true;
         supportInvalidateOptionsMenu();
+        
+        // Show loading on Try It button
+        showTryItButtonLoading(true);
 
         mGestureCropImageView.cropAndSaveImage(mCompressFormat, mCompressQuality, new BitmapCropCallback() {
 
             @Override
             public void onBitmapCropped(@NonNull Uri resultUri, int offsetX, int offsetY, int imageWidth, int imageHeight) {
+                // Hide loading on Try It button
+                showTryItButtonLoading(false);
                 setResultUri(resultUri, mGestureCropImageView.getTargetAspectRatio(), offsetX, offsetY, imageWidth, imageHeight, extraAct);
                 finish();
             }
 
             @Override
             public void onCropFailure(@NonNull Throwable t) {
+                // Hide loading on Try It button
+                showTryItButtonLoading(false);
                 setResultError(t);
                 finish();
             }
@@ -821,6 +829,24 @@ public class UCropActivity extends AppCompatActivity {
 
     protected void setResultError(Throwable throwable) {
         setResult(UCrop.RESULT_ERROR, new Intent().putExtra(UCrop.EXTRA_ERROR, throwable));
+    }
+
+    /**
+     * Show or hide loading state on Try It button
+     */
+    private void showTryItButtonLoading(boolean show) {
+        TextView tryItTv = findViewById(R.id.tryItTv);
+        ProgressBar tryItProgressBar = findViewById(R.id.tryItProgressBar);
+        
+        if (tryItTv != null && tryItProgressBar != null) {
+            if (show) {
+                tryItTv.setVisibility(View.INVISIBLE);
+                tryItProgressBar.setVisibility(View.VISIBLE);
+            } else {
+                tryItTv.setVisibility(View.VISIBLE);
+                tryItProgressBar.setVisibility(View.GONE);
+            }
+        }
     }
 
 }

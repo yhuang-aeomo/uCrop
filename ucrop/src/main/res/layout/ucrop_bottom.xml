@@ -209,6 +209,14 @@
         android:textSize="17sp"
         android:textStyle="bold" />
 
+    <ProgressBar
+        android:id="@+id/tryItProgressBar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminate="true" />
+
     <ImageView
         android:id="@+id/adIcon"
         android:layout_width="20dp"
