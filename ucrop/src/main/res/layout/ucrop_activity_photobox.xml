@@ -31,7 +31,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/toolbar"
         android:textSize="15sp"
-        android:textColor="#E4F80D"
+        android:textColor="@color/ucrop_color_yellow"
         android:background="#000000"
         android:padding="16dp"/>
 
