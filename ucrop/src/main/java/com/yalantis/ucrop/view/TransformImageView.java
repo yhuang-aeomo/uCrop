@@ -333,6 +333,10 @@ public class TransformImageView extends AppCompatImageView {
      * Those are used for several calculations.
      */
     private void updateCurrentImagePoints() {
+        // Prevent NPE when initial image points are not yet initialized
+        if (mInitialImageCorners == null || mInitialImageCenter == null) {
+            return;
+        }
         mCurrentImageMatrix.mapPoints(mCurrentImageCorners, mInitialImageCorners);
         mCurrentImageMatrix.mapPoints(mCurrentImageCenter, mInitialImageCenter);
     }
